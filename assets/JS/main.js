@@ -35,10 +35,10 @@ const slidesList = [
 /* seleziono dove mettere le immagini */
 const slidesElement = document.querySelector(".carousel");
 
-let visibleImg = 0; //getto la base per poi passare alle imagini successive con ++
+/* getto la base per poi passare alle imagini successive con ++ */
+let visibleImg = 0;
 
 /* qui creo una variabile che prenda la location delle immagini dalla lista poi faccio scorrere la lista delle immagini e ci metto solo la prima con valore nella lista 0 tramite insertAdjacentHTML inoltre cambio la classe con il metodo if ristretto visto stamani con Fabio */
-
 for (let i = 0; i < slidesList.length; i++) {
     const slideLocation = slidesList[i]
     const slidesHtml = `<img class="${i === visibleImg ? 'visible' : ''}" src="${slideLocation}" alt="">`
@@ -56,29 +56,34 @@ const nextButton = document.getElementById("next");
     devo far andare avanti l'array ++
     (mi serve anche una base del contatore come stamani in snack 3 ?) SI !
     creo una variabile per l'img a seguire
-    assegno alla img a seguire la classe active
-*/ 
-
+    assegno alla img a seguire la classe active */
 function nextFunction() {
     const allImg = document.querySelectorAll('.carousel > img');
     const currentSlide = allImg[visibleImg];
     console.log(currentSlide);
     currentSlide.classList.remove("visible");
     visibleImg++;
-    const nextImg =  allImg[visibleImg];
+    /* il problema si creava qua quando dopo l'incremento i numeri di visibleImg andavano fuori dal range dell'array (0-4) con questo if, controllo il numero e lo modifico per farlo ciclare  0 1 2 3 4 0 1 2 3 4 0 1 etcc.  */
+    if (visibleImg === slidesList.length) {
+        visibleImg = 0;
+    }
+    const nextImg = allImg[visibleImg];
     console.log(nextImg);
     nextImg.classList.add("visible")
 }
 
 /* ora ricopio da sopra ma con -- per fare il previous img */
-
 function prevFunction() {
     const allImg = document.querySelectorAll('.carousel > img');
     const currentSlide = allImg[visibleImg];
     console.log(currentSlide);
     currentSlide.classList.remove("visible");
     visibleImg--;
-    const prevImg =  allImg[visibleImg];
+    /* stessa cosa di sopra ma al rovescio, se il valore scende sotto lo zero lo riportiamo al numero massimale dell'array, ovvero 4*/
+    if (visibleImg === -1) {
+        visibleImg = 4;
+    }
+    const prevImg = allImg[visibleImg];
     console.log(prevImg);
     prevImg.classList.add("visible")
 }
