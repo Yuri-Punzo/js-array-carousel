@@ -33,12 +33,15 @@ const slidesList = [
 ]
 
 /* seleziono dove mettere le immagini */
-const slidesElement = document.getElementById("carousel")
+const slidesElement = document.querySelector(".carousel")
+
+let visibleImg = 0 //getto la base per poi passare alle imagini successive con ++
 
 /* qui creo una variabile che prenda la location delle immagini dalla lista poi faccio scorrere la lista delle immagini e ci metto solo la prima con valore nella lista 0 tramite insertAdjacentHTML inoltre cambio la classe con il metodo if ristretto visto stamani con Fabio */
+
 for (let i = 0; i < slidesList.length; i++) {
     const slideLocation = slidesList[i]
-    const slidesHtml = `<img class="${i === 0 ? 'visible' : ''}" src="${slideLocation}" alt="">`
+    const slidesHtml = `<img class="${i === visibleImg ? 'visible' : ''}" src="${slideLocation}" alt="">`
     slidesElement.insertAdjacentHTML("beforeend", slidesHtml)
 }
 
@@ -50,15 +53,20 @@ const nextButton = document.getElementById("next")
 
 
 /* adesso voglio cambaire immagine con il click di next:
-    vado a cercare tutte le immagini per poter trovare quella con la classe visible
+    vado a cercare tutte le immagini
+    cerco quella con la classe visible
     poi gli tolgo la classe
     devo far andare avanti l'array
-    (mi serve anche una base del contatore come stamani in snack 3 ?)
+    (mi serve anche una base del contatore come stamani in snack 3 ?) SI !
     quindi assegnare alla prossima immagine la classe visible
 */
-function nextFunction() {
-    console.log("next");
 
+ 
+
+function nextFunction() {
+    const allImg = document.querySelectorAll('.carousel > img')
+    const currentSlide = allImg[visibleImg]
+    console.log(currentSlide);
 
     
 
