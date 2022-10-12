@@ -22,6 +22,8 @@ Costruiamo del carosello una versione statica contenente solamente un'immagine. 
 Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 Al momento giusto (:faccia_pensosa: starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?" */
 
+
+/* lista con i path delle immagini */
 const slidesList = [
     "./assets/img/01 Spiderman - Miles Morales.webp",
     "./assets/img/02 Ratchet & Clank - Rift Apart.webp",
@@ -29,24 +31,35 @@ const slidesList = [
     "./assets/img/04 Stray.webp",
     "./assets/img/05 Avengers.webp"
 ]
-/* lista con i path delle immagini */
 
-const slidesElement = document.getElementById("carousel")
 /* seleziono dove mettere le immagini */
+const slidesElement = document.getElementById("carousel")
 
+/* qui creo una variabile che prenda la location delle immagini dalla lista poi faccio scorrere la lista delle immagini e ci metto solo la prima con valore nella lista 0 tramite insertAdjacentHTML inoltre cambio la classe con il metodo if ristretto visto stamani con Fabio */
 for (let i = 0; i < slidesList.length; i++) {
     const slideLocation = slidesList[i]
-    const slidesHtml = `<img class="${i === 0 ? 'd_block' : ''}" src="${slideLocation}" alt="">`
+    const slidesHtml = `<img class="${i === 0 ? 'visible' : ''}" src="${slideLocation}" alt="">`
     slidesElement.insertAdjacentHTML("beforeend", slidesHtml)
 }
 
-/* qui creo una variabile che prenda la location delle immagini dalla lista poi faccio scorrere la lista delle immagini e ci metto solo la prima con valore nella lista 0 tramite insertAdjacentHTML inoltre cambio la classe con il metodo if ristretto visto stamani con Fabio */
 
+/* creo due variabile che selezionino i pulsanti per farli poi funzionare */
 const prevButton = document.getElementById("previous")
 const nextButton = document.getElementById("next")
 
-/* creo due variabile che selezionino i pulsanti per farli poi funzionare */
 
+
+/* adesso voglio cambaire immagine con il click di next:
+    vado a cercare tutte le immagini per poter trovare quella con la classe visible
+    poi gli tolgo la classe
+    devo far andare avanti l'array
+    (mi serve anche una base del contatore come stamani in snack 3 ?)
+    quindi assegnare alla prossima immagine la classe visible
+*/
 function nextFunction() {
-    console.log(next);
+    console.log("next");
+
+
+    
+
 }
