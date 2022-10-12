@@ -23,7 +23,7 @@ Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa
 Al momento giusto (:faccia_pensosa: starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?" */
 
 
-/* lista con i path delle immagini */
+/* creo array con i path delle immagini */
 const slidesList = [
     "./assets/img/01 Spiderman - Miles Morales.webp",
     "./assets/img/02 Ratchet & Clank - Rift Apart.webp",
@@ -35,10 +35,13 @@ const slidesList = [
 /* seleziono dove mettere le immagini */
 const slidesElement = document.querySelector(".carousel");
 
-/* getto la base per poi passare alle imagini successive con ++ */
+/* getto la base per il mio counter e per poi passare alle imagini successive con ++ */
 let visibleImg = 0;
 
-/* qui creo una variabile che prenda la location delle immagini dalla lista poi faccio scorrere la lista delle immagini e ci metto solo la prima con valore nella lista 0 tramite insertAdjacentHTML inoltre cambio la classe con il metodo if ristretto visto stamani con Fabio */
+/*  -creo un ciclo for
+    -al suo interno creo una var slideslocation che prenda l'url delle img dall'array
+    -grazie alla var slidesHtml vado ad assegnare la classe visible usando il metodo if ristretto visto stamani con Fabio ed associo anche ad i(i del for) il valore di visibleImg
+    -con .insertAdjacentHTML di fatto inserisco l'immagine nell'html */
 for (let i = 0; i < slidesList.length; i++) {
     const slideLocation = slidesList[i]
     const slidesHtml = `<img class="${i === visibleImg ? 'visible' : ''}" src="${slideLocation}" alt="">`
@@ -49,14 +52,16 @@ for (let i = 0; i < slidesList.length; i++) {
 const prevButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 
-/* adesso voglio cambaire immagine con il click di next:
-    vado a cercare tutte le immagini
-    creo una variabile per quella visible
-    poi gli tolgo la classe
-    devo far andare avanti l'array ++
-    (mi serve anche una base del contatore come stamani in snack 3 ?) SI !
-    creo una variabile per l'img a seguire
-    assegno alla img a seguire la classe active */
+/*  adesso voglio cambiare immagine con il click di next:
+    vado a selezionare tutte le immagini con una var allImg
+    creo una variabile (currentSlide) per poter selezionare l'img visibile al momento
+    (dato che visibleImg è associata a alla i del for selezionerà l'immagine corrente)
+    poi gli tolgo la classe visible con classlist.remove facendola sparire
+    devo far andare avanti il counter di visibleImg con ++
+    (var visibleImg creata prima del ciclo for e che di fatto "tiene il conto" per noi)
+    inserito if, leggi sotto perché etcc..
+    dopo if creo una var nextImg per l'img a seguire
+    assegno alla img a seguire la classe visible per farla apparire */
 function nextFunction() {
     const allImg = document.querySelectorAll('.carousel > img');
     const currentSlide = allImg[visibleImg];
