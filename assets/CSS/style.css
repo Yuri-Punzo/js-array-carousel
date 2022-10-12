@@ -2,6 +2,11 @@ body {
     background-color: rgb(36, 36, 36);
 }
 
-.col {
-    height: 100vh;
+img{
+    max-width: 100%;
+    display: none;
+}
+
+.d_block{
+    display: block;
 }

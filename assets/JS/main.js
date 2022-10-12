@@ -21,3 +21,32 @@ Consigli del giorno:
 Costruiamo del carosello una versione statica contenente solamente un'immagine.  Di questa versione statica al momento opportuno commenteremo (oscureremo) alcuni elementi per poterli riprodurre dinamicamente in js. Potremo quindi usarli come "template".
 Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 Al momento giusto (:faccia_pensosa: starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?" */
+
+const slidesList = [
+    "./assets/img/01 Spiderman - Miles Morales.webp",
+    "./assets/img/02 Ratchet & Clank - Rift Apart.webp",
+    "./assets/img/03 Fortnite.webp",
+    "./assets/img/04 Stray.webp",
+    "./assets/img/05 Avengers.webp"
+]
+/* lista con i path delle immagini */
+
+const slidesElement = document.getElementById("carousel")
+/* seleziono dove mettere le immagini */
+
+for (let i = 0; i < slidesList.length; i++) {
+    const slideLocation = slidesList[i]
+    const slidesHtml = `<img class="${i === 0 ? 'd_block' : ''}" src="${slideLocation}" alt="">`
+    slidesElement.insertAdjacentHTML("beforeend", slidesHtml)
+}
+
+/* qui creo una variabile che prenda la location delle immagini dalla lista poi faccio scorrere la lista delle immagini e ci metto solo la prima con valore nella lista 0 tramite insertAdjacentHTML inoltre cambio la classe con il metodo if ristretto visto stamani con Fabio */
+
+const prevButton = document.getElementById("previous")
+const prevButton = document.getElementById("previous")
+
+/* creo due variabile che selezionino i pulsanti per farli poi funzionare */
+
+function nextFunction() {
+    console.log(next);
+}
