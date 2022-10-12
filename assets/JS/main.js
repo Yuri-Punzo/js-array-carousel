@@ -43,7 +43,7 @@ for (let i = 0; i < slidesList.length; i++) {
 /* qui creo una variabile che prenda la location delle immagini dalla lista poi faccio scorrere la lista delle immagini e ci metto solo la prima con valore nella lista 0 tramite insertAdjacentHTML inoltre cambio la classe con il metodo if ristretto visto stamani con Fabio */
 
 const prevButton = document.getElementById("previous")
-const prevButton = document.getElementById("previous")
+const nextButton = document.getElementById("next")
 
 /* creo due variabile che selezionino i pulsanti per farli poi funzionare */
 
