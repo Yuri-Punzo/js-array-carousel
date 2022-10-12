@@ -45,12 +45,9 @@ for (let i = 0; i < slidesList.length; i++) {
     slidesElement.insertAdjacentHTML("beforeend", slidesHtml)
 }
 
-
 /* creo due variabile che selezionino i pulsanti per farli poi funzionare */
 const prevButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
-
-
 
 /* adesso voglio cambaire immagine con il click di next:
     vado a cercare tutte le immagini
@@ -60,9 +57,7 @@ const nextButton = document.getElementById("next");
     (mi serve anche una base del contatore come stamani in snack 3 ?) SI !
     creo una variabile per l'img a seguire
     assegno alla img a seguire la classe active
-*/
-
- 
+*/ 
 
 function nextFunction() {
     const allImg = document.querySelectorAll('.carousel > img');
