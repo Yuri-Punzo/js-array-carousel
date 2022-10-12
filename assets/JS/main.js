@@ -33,9 +33,9 @@ const slidesList = [
 ]
 
 /* seleziono dove mettere le immagini */
-const slidesElement = document.querySelector(".carousel")
+const slidesElement = document.querySelector(".carousel");
 
-let visibleImg = 0 //getto la base per poi passare alle imagini successive con ++
+let visibleImg = 0; //getto la base per poi passare alle imagini successive con ++
 
 /* qui creo una variabile che prenda la location delle immagini dalla lista poi faccio scorrere la lista delle immagini e ci metto solo la prima con valore nella lista 0 tramite insertAdjacentHTML inoltre cambio la classe con il metodo if ristretto visto stamani con Fabio */
 
@@ -47,27 +47,43 @@ for (let i = 0; i < slidesList.length; i++) {
 
 
 /* creo due variabile che selezionino i pulsanti per farli poi funzionare */
-const prevButton = document.getElementById("previous")
-const nextButton = document.getElementById("next")
+const prevButton = document.getElementById("previous");
+const nextButton = document.getElementById("next");
 
 
 
 /* adesso voglio cambaire immagine con il click di next:
     vado a cercare tutte le immagini
-    cerco quella con la classe visible
+    creo una variabile per quella visible
     poi gli tolgo la classe
-    devo far andare avanti l'array
+    devo far andare avanti l'array ++
     (mi serve anche una base del contatore come stamani in snack 3 ?) SI !
-    quindi assegnare alla prossima immagine la classe visible
+    creo una variabile per l'img a seguire
+    assegno alla img a seguire la classe active
 */
 
  
 
 function nextFunction() {
-    const allImg = document.querySelectorAll('.carousel > img')
-    const currentSlide = allImg[visibleImg]
+    const allImg = document.querySelectorAll('.carousel > img');
+    const currentSlide = allImg[visibleImg];
     console.log(currentSlide);
+    currentSlide.classList.remove("visible");
+    visibleImg++;
+    const nextImg =  allImg[visibleImg];
+    console.log(nextImg);
+    nextImg.classList.add("visible")
+}
 
-    
+/* ora ricopio da sopra ma con -- per fare il previous img */
 
+function prevFunction() {
+    const allImg = document.querySelectorAll('.carousel > img');
+    const currentSlide = allImg[visibleImg];
+    console.log(currentSlide);
+    currentSlide.classList.remove("visible");
+    visibleImg--;
+    const prevImg =  allImg[visibleImg];
+    console.log(prevImg);
+    prevImg.classList.add("visible")
 }
