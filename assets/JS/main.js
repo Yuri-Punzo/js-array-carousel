@@ -41,6 +41,7 @@ const slidesElement = document.querySelector(".carousel");
     -con .insertAdjacentHTML di fatto inserisco l'immagine nell'html */
 for (let i = 0; i < slidesList.length; i++) {
     const slideLocation = slidesList[i]
+    console.log(slideLocation);
     const slidesHtml = `<img class="${i === 0 ? 'visible' : ''}" src="${slideLocation}" alt="">`
     slidesElement.insertAdjacentHTML("beforeend", slidesHtml)
     console.log(slidesHtml);
@@ -65,6 +66,7 @@ let visibleImg = 0;
     assegno alla img a seguire la classe visible per farla apparire */
 function nextFunction() {
     const allImg = document.querySelectorAll('.carousel > img');
+    console.log("all img", allImg);
     const currentSlide = allImg[visibleImg];
     console.log(currentSlide);
     currentSlide.classList.remove("visible");
