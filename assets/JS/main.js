@@ -36,8 +36,8 @@ const slidesList = [
 const slidesElement = document.querySelector(".carousel");
 
 /*  -creo un ciclo for
-    -al suo interno creo una var slideslocation che prenda l'url delle img dall'array
-    -grazie alla var slidesHtml vado ad assegnare la classe visible usando il metodo if ristretto visto stamani con Fabio
+    -al suo interno creo una var slideslocation che prenda l'url della img dall'array
+    -grazie alla var slidesHtml vado ad assegnare la classe visible solo alla prima immagine (i === 0) usando il metodo if ristretto visto stamani con Fabio
     -con .insertAdjacentHTML di fatto inserisco l'immagine nell'html */
 for (let i = 0; i < slidesList.length; i++) {
     const slideLocation = slidesList[i]
