@@ -40,7 +40,7 @@ let visibleImg = 0;
 
 /*  -creo un ciclo for
     -al suo interno creo una var slideslocation che prenda l'url delle img dall'array
-    -grazie alla var slidesHtml vado ad assegnare la classe visible usando il metodo if ristretto visto stamani con Fabio ed associo anche ad i(i del for) il valore di visibleImg
+    -grazie alla var slidesHtml vado ad assegnare la classe visible usando il metodo if ristretto visto stamani con Fabio
     -con .insertAdjacentHTML di fatto inserisco l'immagine nell'html */
 for (let i = 0; i < slidesList.length; i++) {
     const slideLocation = slidesList[i]
