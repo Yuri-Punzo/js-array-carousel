@@ -35,22 +35,23 @@ const slidesList = [
 /* seleziono dove mettere le immagini */
 const slidesElement = document.querySelector(".carousel");
 
-/* getto la base per il mio counter e per poi passare alle imagini successive con ++ */
-let visibleImg = 0;
-
 /*  -creo un ciclo for
     -al suo interno creo una var slideslocation che prenda l'url delle img dall'array
     -grazie alla var slidesHtml vado ad assegnare la classe visible usando il metodo if ristretto visto stamani con Fabio
     -con .insertAdjacentHTML di fatto inserisco l'immagine nell'html */
 for (let i = 0; i < slidesList.length; i++) {
     const slideLocation = slidesList[i]
-    const slidesHtml = `<img class="${i === visibleImg ? 'visible' : ''}" src="${slideLocation}" alt="">`
+    const slidesHtml = `<img class="${i === 0 ? 'visible' : ''}" src="${slideLocation}" alt="">`
     slidesElement.insertAdjacentHTML("beforeend", slidesHtml)
+    console.log(slidesHtml);
 }
 
 /* creo due variabile che selezionino i pulsanti per farli poi funzionare */
 const prevButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
+
+/* getto la base per il mio counter e per poi passare alle imagini successive con ++ */
+let visibleImg = 0;
 
 /*  adesso voglio cambiare immagine con il click di next:
     vado a selezionare tutte le immagini con una var allImg
