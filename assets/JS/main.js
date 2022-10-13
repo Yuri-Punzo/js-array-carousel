@@ -55,7 +55,7 @@ const nextButton = document.getElementById("next");
 /*  adesso voglio cambiare immagine con il click di next:
     vado a selezionare tutte le immagini con una var allImg
     creo una variabile (currentSlide) per poter selezionare l'img visibile al momento
-    (dato che visibleImg è associata a alla i del for selezionerà l'immagine corrente)
+    (dato che visibleImg ha valore zero pescherà la prima immagine)
     poi gli tolgo la classe visible con classlist.remove facendola sparire
     devo far andare avanti il counter di visibleImg con ++
     (var visibleImg creata prima del ciclo for e che di fatto "tiene il conto" per noi)
